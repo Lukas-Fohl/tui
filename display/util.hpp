@@ -24,4 +24,5 @@ vector<vector<string>> scaling(float factor, vector<vector<string>> input)
 	{
 		return input;
 	}
+	return input;
 }
