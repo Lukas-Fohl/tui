@@ -25,19 +25,21 @@ void execute()
 	window main_window(81,25);
 	//main_window.append_window(0,0,new_time.ascii_time);
 	main_window.append_window_maks(27,8,new_time.ascii_time_mask);
-
+	
 	new_display.append_display(time_window_x_offset
 					,time_window_y_offset
 					,main_window.window_full);
 	new_display.append_display_maks(time_window_x_offset
 					,time_window_y_offset
 					,main_window.window_full_mask);
+	
+	vector<vector<string>> newing = scaling(27,8,new_time.ascii_time);
+
+	//new_display.append_display_maks(0,0,newing); 
 
 	//quote new_quote;
 
 	//new_display.append_display(0,0,new_quote.final_output_quote);
-
-	text new_text(false);
 
 	//custom_text cs_text("hi",colors::none);
 
