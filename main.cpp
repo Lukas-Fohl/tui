@@ -33,9 +33,7 @@ void execute()
 					,time_window_y_offset
 					,main_window.window_full_mask);
 	
-	vector<vector<string>> newing = scaling(27,8,new_time.ascii_time);
-
-	//new_display.append_display_maks(0,0,newing); 
+	//vector<vector<string>> newing = scaling(27,8,new_time.ascii_time); 
 
 	//quote new_quote;
 
