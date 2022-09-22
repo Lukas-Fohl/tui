@@ -35,7 +35,6 @@ vector<vector<string>> scaling(int new_x_size, int new_y_size, vector<vector<str
 	{
 		for(int x = 0; x < input[0].size(); x++)
 		{
-			//cout << "y: " << int(y*factor_y) << ";;" << "x: " << int(x*factor_x) << "\n";
 			new_output.at(int(y*factor_y)).at(int(x*factor_x)) = input.at(y).at(x);	
 		}
 	}
@@ -72,7 +71,6 @@ vector<vector<colors>> scaling_mask(int new_x_size, int new_y_size, vector<vecto
 	{
 		for(int x = 0; x < input[0].size(); x++)
 		{
-			//cout << "y: " << int(y*factor_y) << ";;" << "x: " << int(x*factor_x) << "\n";
 			new_output.at(int(y*factor_y)).at(int(x*factor_x)) = input.at(y).at(x);	
 		}
 	}
