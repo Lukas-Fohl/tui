@@ -96,7 +96,7 @@ class window
             add_to_window();
         }
 
-        void append_window_maks(int x_offset,int y_offset,vector<vector<colors>> color_in)
+        void append_window_mask(int x_offset,int y_offset,vector<vector<colors>> color_in)
         {
             for(int y = 0; y < color_in.size(); y++)
             {
