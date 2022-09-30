@@ -56,7 +56,7 @@ void execute()
 	new_display.display_out();
 
 	unsigned int microsecond = 1000000;
-	usleep(5 * microsecond);
+	usleep(2 * microsecond);
 }
 
 int main()
