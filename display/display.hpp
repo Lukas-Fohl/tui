@@ -76,7 +76,7 @@ class display
             }
         }
 
-        void append_display_maks(int x_in,int y_in,vector<vector<colors>> display_in)
+        void append_display_mask(int x_in,int y_in,vector<vector<colors>> display_in)
         {
             for(int y = 0; y < display_in.size(); y++)
             {

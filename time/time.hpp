@@ -181,7 +181,7 @@ class time_ascii
             }
         }
 
-        void make_maks()
+        void make_mask()
         {
             for(int y2= 0; y2 < ascii_time.size(); y2++)
             {
@@ -220,6 +220,6 @@ class time_ascii
             hour = now->tm_hour;
             minute = now->tm_min;
             fill();
-            make_maks();
+            make_mask();
         }
 };

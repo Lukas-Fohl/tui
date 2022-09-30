@@ -11,8 +11,8 @@ class window
         vector<vector<colors>> window_full_mask;
         vector<vector<colors>> window_content_mask;
 
-        string border_site = "|";
-        string border_bottom = "-";
+        string border_site = "┃";// |
+        string border_bottom = "━";// /
 
         int height;
         int width;
@@ -60,6 +60,11 @@ class window
                 window_full.at(0).at(x) = border_bottom;
                 window_full.at(height_in-1).at(x) = border_bottom;
             }
+
+            window_full.at(height_in-1).at(width_in-1)  = "┛";
+            window_full.at(height_in-1).at(0)           = "┗";
+            window_full.at(0).at(width_in-1)            = "┓";
+            window_full.at(0).at(0)                     = "┏";
         }
 
         void add_to_window()
