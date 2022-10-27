@@ -25,7 +25,7 @@ void execute()
 
 	window time_window(display_width/2,display_height/2);
 	//main_window.append_window(0,0,new_time.ascii_time);
-	time_window.append_window_mask(36,10,new_time.ascii_time_mask);
+	time_window.append_window_mask(35,9,scaling_mask(28,8,new_time.ascii_time_mask));
 
 	new_display.append_display(0,display_height/2,tiny_window.window_full);
 	new_display.append_display(display_width/2,0,big_window.window_full);

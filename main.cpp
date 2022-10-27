@@ -11,8 +11,8 @@
 
 void execute()
 {
-	int time_window_x_offset = 67;//67//
-	int time_window_y_offset = 15;//15//
+	int time_window_x_offset = 67;//67
+	int time_window_y_offset = 15;//15
 
 	colors background = colors::none;
 
@@ -56,7 +56,7 @@ void execute()
 	new_display.display_out();
 
 	unsigned int microsecond = 1000000;
-	usleep(2 * microsecond);
+	usleep((1/60) * microsecond);
 }
 
 int main()
