@@ -6,89 +6,89 @@
 
 using namespace std;
 
-struct time_text
+struct timeText
 {
-	int min_beg;
-	int hour_beg;
-	int min_end;
-	int hour_end;
+	int minBeg;
+	int hourBeg;
+	int minEnd;
+	int hourEnd;
 	string text_;
 };
 
-struct normal_text
+struct normalText
 {
 	string text_;
 };
 
-normal_text return_normal(int int_in)
+normalText returnNormal(int intIn)
 {
 	//list of all normal Text entrys 
-	normal_text return_normal_text;
-	switch(int_in)
+	normalText returnNormalText;
+	switch(intIn)
 	{
 		case 1:
-		return_normal_text.text_ = "mach was";
+		returnNormalText.text_ = "mach was";
 		break;
 		default:
-		return_normal_text.text_ = "test";
+		returnNormalText.text_ = "test";
 		break;
 	}
-	return return_normal_text;
+	return returnNormalText;
 }
 
-time_text return_time(int int_in)
+timeText returnTime(int intIn)
 {
 	//list of all time based Text entrys 
-	time_text return_time_text;
-	switch(int_in)
+	timeText returnTimeText;
+	switch(intIn)
 	{
 		case 1:
-		return_time_text.text_ = "test";
-		return_time_text.hour_beg	= 0;
-		return_time_text.min_beg 	= 0;
-		return_time_text.hour_end 	= 1;
-		return_time_text.min_end	= 1;
+		returnTimeText.text_ = "test";
+		returnTimeText.hourBeg	= 0;
+		returnTimeText.minBeg 	= 0;
+		returnTimeText.hourEnd 	= 1;
+		returnTimeText.minEnd	= 1;
 		break;
 		default:
-		return_time_text.text_ = "test";
-		return_time_text.hour_beg	= 0;
-		return_time_text.min_beg 	= 0;
-		return_time_text.hour_end 	= 1;
-		return_time_text.min_end	= 1;
-		return_time_text.hour_end 	= 1;
+		returnTimeText.text_ = "test";
+		returnTimeText.hourBeg	= 0;
+		returnTimeText.minBeg 	= 0;
+		returnTimeText.hourEnd 	= 1;
+		returnTimeText.minEnd	= 1;
+		returnTimeText.hourEnd 	= 1;
 		break;
 	}
-	return return_time_text;
+	return returnTimeText;
 }
 
 class text
 {
 	public:
 		vector<vector<string>> output;
-		vector<time_text> time_vector;
-		vector<normal_text> normal_vector;
+		vector<timeText> timeVector;
+		vector<normalText> normalVector;
 	
-	void add_text(int y_offset,string text_in)
+	void addText(int Yoffset,string textIn)
     {
-        for(int i = 0 ;i < text_in.length(); i++)
+        for(int i = 0 ;i < textIn.length(); i++)
         {
-            output.at(0).at(i) = text_in[i];
+            output.at(0).at(i) = textIn[i];
         }
     }
 
 	text(bool time)
 	{
-		normal_vector.push_back(return_normal(1));
+		normalVector.push_back(returnNormal(1));
         int len;
 		int new_len = 0;
 		if(!time)
 		{
 			//find longest text
-			for(int i = 0; i < normal_vector.size(); i++)
+			for(int i = 0; i < normalVector.size(); i++)
 			{
-				if(normal_vector.at(i).text_.length() > new_len)
+				if(normalVector.at(i).text_.length() > new_len)
 				{
-					new_len = normal_vector.at(i).text_.length();
+					new_len = normalVector.at(i).text_.length();
 				}
 			}
 			//ceartes vector with width of the longes element and height of the entrys in the vector
@@ -97,22 +97,22 @@ class text
         	{
         	    n.push_back(" ");
         	}
-			for(int y = 0; y < normal_vector.size(); y++)
+			for(int y = 0; y < normalVector.size(); y++)
 			{
 				output.push_back(n);
 			}
-			for(int i = 0; i < normal_vector.size(); i++)
+			for(int i = 0; i < normalVector.size(); i++)
 			{
-				add_text(i,normal_vector.at(i).text_);
+				addText(i,normalVector.at(i).text_);
 			}
 			//get time add text into output vector
 		}else
 		{
-			for(int i = 0; i < time_vector.size(); i++)
+			for(int i = 0; i < timeVector.size(); i++)
 			{
-				if(time_vector.at(i).text_.length() > new_len)
+				if(timeVector.at(i).text_.length() > new_len)
 				{
-					new_len = time_vector.at(i).text_.length();
+					new_len = timeVector.at(i).text_.length();
 				}
 			}
 			vector<string> n;
@@ -120,20 +120,20 @@ class text
         	{
         	    n.push_back(" ");
         	}
-			for(int y = 0; y < time_vector.size(); y++)
+			for(int y = 0; y < timeVector.size(); y++)
 			{
 				output.push_back(n);
 			}
-			for(int i = 0; i < time_vector.size(); i++)
+			for(int i = 0; i < timeVector.size(); i++)
 			{
 				std::time_t t = std::time(nullptr);
             	std::tm* now = std::localtime(&t);
-            	if(time_vector.at(i).hour_beg >= now->tm_hour 
-				&& time_vector.at(i).min_beg >= now->tm_min
-				&& time_vector.at(i).hour_end <= now->tm_hour
-				&& time_vector.at(i).min_end <= now->tm_hour)
+            	if(timeVector.at(i).hourBeg >= now->tm_hour 
+				&& timeVector.at(i).minBeg >= now->tm_min
+				&& timeVector.at(i).hourEnd <= now->tm_hour
+				&& timeVector.at(i).minEnd <= now->tm_hour)
 				{
-					add_text(i,time_vector.at(i).text_);
+					addText(i,timeVector.at(i).text_);
 				}
 			}
 			//add all text to ouput

@@ -11,35 +11,35 @@ class graph
 {
 	public:
 		vector<vector<string>> output;
-		vector<vector<colors>> output_mask;
+		vector<vector<colors>> outputMask;
 		graph()
 		{
 		}	
 
 		void linear_graph(vector<int> AP,vector<int> BP)
 		{
-			int x_diff 	= abs(AP.at(0) - BP.at(0));
-			int y_diff 	= abs(AP.at(1) - BP.at(1));
+			int Xdiff 	= abs(AP.at(0) - BP.at(0));
+			int Ydiff 	= abs(AP.at(1) - BP.at(1));
 
 			vector<string> n;
-			vector<colors> n_mask;
+			vector<colors> nMask;
 
-			for(int x = 0; x < x_diff; x++ )
+			for(int x = 0; x < Xdiff; x++ )
 			{
 				n.push_back(" ");
-				n_mask.push_back(colors::none);
+				nMask.push_back(colors::none);
 			}
-			for(int y = 0; y < y_diff; y++ )
+			for(int y = 0; y < Ydiff; y++ )
 			{
 				output.push_back(n);
-				output_mask.push_back(n_mask);
+				outputMask.push_back(nMask);
 			}
 
-			for(int x_loop = 0;x_loop < x_diff; x_loop++)
+			for(int Xloop = 0;Xloop < Xdiff; Xloop++)
 			{
-				double per = double(x_loop) / double(x_diff);
-				int new_y = per*y_diff;
-				output.at(new_y).at(x_loop) = "#";
+				double per = double(Xloop) / double(Xdiff);
+				int newY = per*Ydiff;
+				output.at(newY).at(Xloop) = "#";
 			}
 		}
 	//find point A and B

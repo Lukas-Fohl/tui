@@ -6,110 +6,110 @@ using namespace std;
 class window
 {
     public:
-        vector<vector<string>> window_full;
-        vector<vector<string>> window_content;
-        vector<vector<colors>> window_full_mask;
-        vector<vector<colors>> window_content_mask;
+        vector<vector<string>> windowFull;
+        vector<vector<string>> windowContent;
+        vector<vector<colors>> windowFullMask;
+        vector<vector<colors>> windowContentMask;
 
-        string border_site = "┃";// |
-        string border_bottom = "━";// /
+        string borderSite = "┃";// |
+        string borderBottom = "━";// /
 
         int height;
         int width;
 
-        window(int width_in, int height_in)
+        window(int widthIn, int heightIn)
         {
-            height = height_in;
-            width  = width_in;
+            height = heightIn;
+            width  = widthIn;
 
-            vector<colors> color_use;
-            vector<string> string_use;
+            vector<colors> colorUse;
+            vector<string> stringUse;
 
-            for(int x = 0; x < width_in; x++)
+            for(int x = 0; x < widthIn; x++)
             {
-                color_use.push_back(colors::none);
-                string_use.push_back(" ");
+                colorUse.push_back(colors::none);
+                stringUse.push_back(" ");
             }
-            for(int y = 0; y < height_in; y++)
+            for(int y = 0; y < heightIn; y++)
             {
-                window_full.push_back(string_use);
-                window_full_mask.push_back(color_use);
-            }
-
-            vector<colors> color_use_content;
-            vector<string> string_use_content;
-
-            for(int x = 0; x < width_in-2; x++)
-            {
-                color_use_content.push_back(colors::none);
-                string_use_content.push_back(" ");
-            }
-            for(int y = 0; y < height_in-2; y++)
-            {
-                window_content.push_back(string_use_content);
-                window_content_mask.push_back(color_use_content);
+                windowFull.push_back(stringUse);
+                windowFullMask.push_back(colorUse);
             }
 
-            for(int y = 1; y < height_in-1; y++)
+            vector<colors> colorUseContent;
+            vector<string> stringUseContent;
+
+            for(int x = 0; x < widthIn-2; x++)
             {
-                window_full.at(y).at(0) = border_site;
-                window_full.at(y).at(width_in-1) = border_site;
+                colorUseContent.push_back(colors::none);
+                stringUseContent.push_back(" ");
             }
-            for(int x = 1; x < width_in-1; x++)
+            for(int y = 0; y < heightIn-2; y++)
+            {
+                windowContent.push_back(stringUseContent);
+                windowContentMask.push_back(colorUseContent);
+            }
+
+            for(int y = 1; y < heightIn-1; y++)
+            {
+                windowFull.at(y).at(0) = borderSite;
+                windowFull.at(y).at(widthIn-1) = borderSite;
+            }
+            for(int x = 1; x < widthIn-1; x++)
             {                
-                window_full.at(0).at(x) = border_bottom;
-                window_full.at(height_in-1).at(x) = border_bottom;
+                windowFull.at(0).at(x) = borderBottom;
+                windowFull.at(heightIn-1).at(x) = borderBottom;
             }
 
-            window_full.at(height_in-1).at(width_in-1)  = "┛";
-            window_full.at(height_in-1).at(0)           = "┗";
-            window_full.at(0).at(width_in-1)            = "┓";
-            window_full.at(0).at(0)                     = "┏";
+            windowFull.at(heightIn-1).at(widthIn-1)  = "┛";
+            windowFull.at(heightIn-1).at(0)           = "┗";
+            windowFull.at(0).at(widthIn-1)            = "┓";
+            windowFull.at(0).at(0)                     = "┏";
         }
 
-        void add_to_window()
+        void addToWindow()
         {
-            for(int y = 0; y < window_content.size(); y++)
+            for(int y = 0; y < windowContent.size(); y++)
             {
-                for(int x = 0; x < window_content[y].size(); x++)
+                for(int x = 0; x < windowContent[y].size(); x++)
                 {
-                    window_full.at(y+1).at(x+1) = window_content.at(y).at(x);
+                    windowFull.at(y+1).at(x+1) = windowContent.at(y).at(x);
                 }
             }
         }
 
-        void add_to_window_mask()
+        void addToWindowMask()
         {
-            for(int y = 0; y < window_content_mask.size(); y++)
+            for(int y = 0; y < windowContentMask.size(); y++)
             {
-                for(int x = 0; x < window_content_mask[y].size(); x++)
+                for(int x = 0; x < windowContentMask[y].size(); x++)
                 {
-                    window_full_mask.at(y+1).at(x+1) = window_content_mask.at(y).at(x);
+                    windowFullMask.at(y+1).at(x+1) = windowContentMask.at(y).at(x);
                 }
             }
         }
 
-        void append_window(int x_offset,int y_offset,vector<vector<string>> display_in)
+        void appendWindow(int Xoffset,int Yoffset,vector<vector<string>> displayIn)
         {
-            for(int y = 0; y < display_in.size(); y++)
+            for(int y = 0; y < displayIn.size(); y++)
             {
-                for(int x = 0; x < display_in[y].size(); x++)
+                for(int x = 0; x < displayIn[y].size(); x++)
                 {
-                    window_content.at(y+y_offset).at(x+x_offset) = display_in.at(y).at(x);
+                    windowContent.at(y+Yoffset).at(x+Xoffset) = displayIn.at(y).at(x);
                 }
             }
-            add_to_window();
+            addToWindow();
         }
 
-        void append_window_mask(int x_offset,int y_offset,vector<vector<colors>> color_in)
+        void appendWindowMask(int Xoffset,int Yoffset,vector<vector<colors>> colorIn)
         {
-            for(int y = 0; y < color_in.size(); y++)
+            for(int y = 0; y < colorIn.size(); y++)
             {
-                for(int x = 0; x < color_in[y].size(); x++)
+                for(int x = 0; x < colorIn[y].size(); x++)
                 {
-                    window_content_mask.at(y+y_offset).at(x+x_offset) = color_in.at(y).at(x);
+                    windowContentMask.at(y+Yoffset).at(x+Xoffset) = colorIn.at(y).at(x);
                 }
             }
-            add_to_window_mask();
+            addToWindowMask();
         }
 };

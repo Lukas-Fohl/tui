@@ -3,61 +3,61 @@
 
 using namespace std;
 
-struct quote_strc
+struct quoteStrc
 {
     string name;
     string quote;
 };
 
-quote_strc return_rnd_quote(int input)
+quoteStrc returnRndQuote(int input)
 {
-    quote_strc new_quote;
+    quoteStrc newQuote;
     switch(input)
     {
         case 1:
-            new_quote.quote = "das ist auf keine Fall ein Platzhalter";
-            new_quote.name  = "ich";
+            newQuote.quote = "das ist auf keine Fall ein Platzhalter";
+            newQuote.name  = "ich";
         break;
         case 2:
-            new_quote.quote = "20€ sind 20€";
-            new_quote.name  = "sun tzu";
+            newQuote.quote = "20€ sind 20€";
+            newQuote.name  = "sun tzu";
         break;
         case 3:
-            new_quote.quote = "Hmmmmmm Monkey";
-            new_quote.name  = "Oogway";
+            newQuote.quote = "Hmmmmmm Monkey";
+            newQuote.name  = "Oogway";
         break;
         case 4:
-            new_quote.quote = "Fuck You And Your Eyebrows";
-            new_quote.name  = "w.w.";
+            newQuote.quote = "Fuck You And Your Eyebrows";
+            newQuote.name  = "w.w.";
         break;
         case 5:
-            new_quote.quote = "お兄ちゃんやめてください";
-            new_quote.name  = "¯\\_(ツ)_/¯ ";
+            newQuote.quote = "お兄ちゃんやめてください";
+            newQuote.name  = "¯\\_(ツ)_/¯ ";
         break;
         case 6:
-            new_quote.quote = "Stehtisch";
-            new_quote.name  = ":(";
+            newQuote.quote = "Stehtisch";
+            newQuote.name  = ":(";
         break;
         case 7:
-            new_quote.quote = "I'm not just sure, Butters. I'm HIV Positive";
-            new_quote.name  = "Cartman";
+            newQuote.quote = "I'm not just sure, Butters. I'm HIV Positive";
+            newQuote.name  = "Cartman";
         break;
         case 8:
-            new_quote.quote = "Do British people count as an ethnicity for hate crimes?";
-            new_quote.name  = "Cartman";
+            newQuote.quote = "Do British people count as an ethnicity for hate crimes?";
+            newQuote.name  = "Cartman";
         break;
         case 9:
-            new_quote.quote = "you're worse then Hiler, cuz he cared about germans";
-            new_quote.name  = "Morty";
+            newQuote.quote = "you're worse then Hiler, cuz he cared about germans";
+            newQuote.name  = "Morty";
         break;
         case 10:
-            new_quote.quote = "9/10 Menschen leiden an Durchfall, ich geniesse es";
-            new_quote.name  = "So nen Hase";
+            newQuote.quote = "9/10 Menschen leiden an Durchfall, ich geniesse es";
+            newQuote.name  = "So nen Hase";
         break;
         default:
-            new_quote.quote = "kennst du Mort";
-            new_quote.name  = "meinen Morts cock";
+            newQuote.quote = "kennst du Mort";
+            newQuote.name  = "meinen Morts cock";
         break;
     }
-    return new_quote;
+    return newQuote;
 }

@@ -10,43 +10,43 @@ using namespace std;
 class quote
 {
     public:
-        const int qoute_lenght = 11;
-        vector<vector<string>> final_output_quote;
+        const int qouteLenght = 11;
+        vector<vector<string>> output;
         quote()
         {
             srand (time(NULL));
-            quote_strc new_quote = return_rnd_quote(rand() % qoute_lenght + 1);
+            quoteStrc newQuote = returnRndQuote(rand() % qouteLenght + 1);
             vector<string> n;
             int len;
-            if(new_quote.quote.length() > new_quote.name.length())
+            if(newQuote.quote.length() > newQuote.name.length())
             {
-                len = new_quote.quote.length();
+                len = newQuote.quote.length();
             }else
             {
-                len = new_quote.name.length();
+                len = newQuote.name.length();
             }
             for(int x = 0; x < len+2; x++)
             {
                 n.push_back(" ");
             }
-            final_output_quote.push_back(n);
-            final_output_quote.push_back(n);
-            put_quote_in(new_quote);
+            output.push_back(n);
+            output.push_back(n);
+            putQuoteIn(newQuote);
         }
 
-        void put_quote_in(quote_strc quote_in)
+        void putQuoteIn(quoteStrc quoteIn)
         {
-            final_output_quote.at(0).at(0) = "\"";
-            for(int i = 0 ;i < quote_in.quote.length(); i++)
+            output.at(0).at(0) = "\"";
+            for(int i = 0 ;i < quoteIn.quote.length(); i++)
             {
-                final_output_quote.at(0).at(i+1) = quote_in.quote[i];
+                output.at(0).at(i+1) = quoteIn.quote[i];
             }
-            final_output_quote.at(0).at(quote_in.quote.length()+1) = "\"";
-            final_output_quote.at(1).at(0) = "-";
-            final_output_quote.at(1).at(1) = " ";
-            for(int i = 0 ;i < quote_in.name.length(); i++)
+            output.at(0).at(quoteIn.quote.length()+1) = "\"";
+            output.at(1).at(0) = "-";
+            output.at(1).at(1) = " ";
+            for(int i = 0 ;i < quoteIn.name.length(); i++)
             {
-                final_output_quote.at(1).at(i+2) = quote_in.name[i];
+                output.at(1).at(i+2) = quoteIn.name[i];
             }
         }
 

@@ -14,14 +14,14 @@ return the corresponding elment of the array but i didn't and I dont't know why 
 not going to change it  
 */
 
-class time_ascii
+class timeAscii
 {
     public:
-        std::vector<std::vector<colors>> ascii_time_mask;
-        std::vector<std::vector<std::string>> ascii_time;
+        std::vector<std::vector<colors>> outputMask;
+        std::vector<std::vector<std::string>> output;
 
-        colors back_color;
-        colors time_color;
+        colors backColor;
+        colors timeColor;
 
         int hour = 0;
         int minute = 0;
@@ -93,19 +93,19 @@ class time_ascii
             }
         }
 
-        void insert(int place,int ins_numb)
+        void insert(int place,int insNumb)
         {
-            int x_offset = (place*5);
+            int Xoffset = (place*5);
             if(place >1)
             {
-                x_offset += 3;
+                Xoffset += 3;
             }
-            std::vector<std::vector<std::string>> ff = swi(ins_numb);
+            std::vector<std::vector<std::string>> ff = swi(insNumb);
             for(int y = 0; y < ff.size();y++)
             {
                 for(int x = 0; x < ff[y].size();x++)
                 {
-                    ascii_time.at(y).at(x+x_offset) = ff.at(y).at(x);
+                    output.at(y).at(x+Xoffset) = ff.at(y).at(x);
                 }    
             }
             /*
@@ -115,7 +115,7 @@ class time_ascii
                 {
                     for(int x2 = 0; x2 < 23; x2++)
                     {
-                        std::cout << ascii_time.at(y2).at(x2);
+                        std::cout << output.at(y2).at(x2);
                     }
                     std::cout << "\n";
                 }
@@ -153,7 +153,7 @@ class time_ascii
             {
                 for(int x = 0; x < ff[y].size();x++)
                 {
-                    ascii_time.at(y).at(10+x) = ff.at(y).at(x);
+                    output.at(y).at(10+x) = ff.at(y).at(x);
                 }    
             }
             if(minute < 10)
@@ -181,45 +181,45 @@ class time_ascii
             }
         }
 
-        void make_mask()
+        void makeMask()
         {
-            for(int y2= 0; y2 < ascii_time.size(); y2++)
+            for(int y2= 0; y2 < output.size(); y2++)
             {
-                for(int x2 = 0; x2 < ascii_time[y2].size(); x2++)
+                for(int x2 = 0; x2 < output[y2].size(); x2++)
                 {
-                    if(ascii_time.at(y2).at(x2) != " ")
+                    if(output.at(y2).at(x2) != " ")
                     {
-                        ascii_time_mask.at(y2).at(x2) = time_color;
+                        outputMask.at(y2).at(x2) = timeColor;
                     }
                     else
                     {
-                        ascii_time_mask.at(y2).at(x2) == back_color;
+                        outputMask.at(y2).at(x2) == backColor;
                     }
                 }
             }
         }
 
-        time_ascii(colors back_color_in, colors time_ascii_color_in)
+        timeAscii(colors backColorIn, colors timeAsciiColorIn)
         {
-            back_color = back_color_in;
-            time_color = time_ascii_color_in;    
-            std::vector<std::string>    display_make;
-            std::vector<colors>         color_mask_make;
+            backColor = backColorIn;
+            timeColor = timeAsciiColorIn;    
+            std::vector<std::string>    displayMake;
+            std::vector<colors>         colorMaskMake;
             for(int x= 0; x < 23;x++)
             {
-                color_mask_make.push_back(back_color);
-                display_make.push_back(".");
+                colorMaskMake.push_back(backColor);
+                displayMake.push_back(".");
             }
             for(int y= 0; y < 7;y++)
             {
-                ascii_time_mask.push_back(color_mask_make);
-                ascii_time.push_back(display_make);
+                outputMask.push_back(colorMaskMake);
+                output.push_back(displayMake);
             }
             std::time_t t = std::time(nullptr);
             std::tm* now = std::localtime(&t);
             hour = now->tm_hour;
             minute = now->tm_min;
             fill();
-            make_mask();
+            makeMask();
         }
 };

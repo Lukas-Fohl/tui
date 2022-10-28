@@ -3,22 +3,22 @@
 
 using namespace std;
 
-class custom_text
+class customText
 {
 	public:
 		vector<vector<string>> output;
-		vector<vector<colors>> output_mask;
-		custom_text(string input,colors color_in)
+		vector<vector<colors>> outputMask;
+		customText(string input,colors colorIn)
 		{
 			vector<string> n;
-			vector<colors> n_mask;
+			vector<colors> nMask;
 			for(int i = 0; i < input.length(); i++)
 			{
 				string bet(1,input[i]);
 				n.push_back(bet);
-				n_mask.push_back(color_in);
+				nMask.push_back(colorIn);
 			}
 			output.push_back(n);
-			output_mask.push_back(n_mask);
+			outputMask.push_back(nMask);
 		}
 };
