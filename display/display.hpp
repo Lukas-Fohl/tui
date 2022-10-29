@@ -67,7 +67,7 @@ class display
                 if((usedPoints.at(i).content != displayGrid.at(usedPoints.at(i).y).at(usedPoints.at(i).x)) &&
                    (usedPoints.at(i).colorContent != displayMask.at(usedPoints.at(i).y).at(usedPoints.at(i).x)))
                 {
-                    printf("%s",(("\x1B[30m\033[" + to_string(usedPoints.at(i).y) + ";" + to_string(usedPoints.at(i).x) + "H" + nStr + "\033[0m").c_str()));
+                    printf("%s",(charFind(usedPoints.at(i).x,usedPoints.at(i).y)).c_str());
                 }
             }
             usedPoints.clear();
