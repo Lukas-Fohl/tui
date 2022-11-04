@@ -29,10 +29,10 @@ class grid
 				output.push_back(n);
 				outputMask.push_back(nMask);
 			}
-
-			for(int x = 0; x < input.size(); x++)
+			
+			for(int y = 0; y < input.size(); y++)
 			{
-				for(int y = 0; y < input[x].size(); y++)
+				for(int x = 0; x < input.at(y).size(); x++)
 				{
 					if(input.at(y).at(x) == true)
 					{
