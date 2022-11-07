@@ -107,7 +107,10 @@ class display
             {
                 for(int x = 0; x < displayIn[y].size(); x++)
                 {
-                    displayGrid.at(y+yIn).at(x+xIn) = displayIn.at(y).at(x);
+                    if(displayGrid.at(y+yIn).at(x+xIn) != displayIn.at(y).at(x))
+                    {
+                        displayGrid.at(y+yIn).at(x+xIn) = displayIn.at(y).at(x);
+                    }
                 }
             }
         }
@@ -118,7 +121,10 @@ class display
             {
                 for(int x = 0; x < displayIn[y].size(); x++)
                 {
-                    displayMask.at(y+yIn).at(x+xIn) = displayIn.at(y).at(x);
+                    if(displayMask.at(y+yIn).at(x+xIn) != displayIn.at(y).at(x))
+                    {
+                        displayMask.at(y+yIn).at(x+xIn) = displayIn.at(y).at(x);
+                    }
                 }
             }
         }
