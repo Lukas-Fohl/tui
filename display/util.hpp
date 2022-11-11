@@ -3,7 +3,7 @@
 
 using namespace std;
 
-enum colors {black, red, green, yellow, blue, magenta, cyan, white, b_green, b_yellow, b_blue_d, b_blue_b, b_gray, none};
+enum colors {black, red, green, yellow, blue, magenta, cyan, white, b_green, b_yellow, b_blue_d, b_blue_b, b_gray_b, b_black, b_red, b_magenta, b_gray_l, b_red_l, b_green_l, b_yellow_l, b_white, none};
 
 vector<vector<string>> scaling(int newXSize, int newYSize, vector<vector<string>> input)
 {

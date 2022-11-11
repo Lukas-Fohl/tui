@@ -133,6 +133,8 @@ class display
         {
             string sOut;
             sOut = displayGrid.at(y).at(x);
+            string backGround = "";
+            string forGround = "";
             //sOut.push_back(displayGrid[x][y]);
             switch(displayMask.at(y).at(x))
             {
@@ -140,48 +142,106 @@ class display
                     return "\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut;
                 break;
                 case colors::black :
-                    //später
-                    return "\x1B[30m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                    backGround = "30";
+                    forGround = "0";
+                    //return "\x1B[30m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
                     break;
                 case colors::red :
-                    return "\x1B[31m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                    backGround = "31";
+                    forGround = "0";
+                    //return "\x1B[31m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
                     break;
                 case colors::green :
-                    return "\x1B[32m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                    backGround = "32";
+                    forGround = "0";
+                    //return "\x1B[32m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
                     break;
                 case colors::yellow : 
-                    return "\x1B[33m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                    backGround = "32";
+                    forGround = "0";
+                    //return "\x1B[33m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
                     break;
                 case colors::blue :
-                    return "\x1B[34m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                    backGround = "34";
+                    forGround = "0";
+                    //return "\x1B[34m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
                     break;
                 case colors::magenta :
-                    return "\x1B[35m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                    backGround = "35";
+                    forGround = "0";
+                    //return "\x1B[35m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
                     break;
                 case colors::cyan :
-                    return "\x1B[36m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                    backGround = "36";
+                    forGround = "0";
+                    //return "\x1B[36m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
                     break;
                 case colors::white :
-                    return "\x1B[37m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                    backGround = "37";
+                    forGround = "0";
+                    //return "\x1B[37m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
                     break;
                 case colors::b_green :
-                    return "\033[3;42;30m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                    backGround = "30";
+                    forGround = "42";
+                    //return "\033[3;42;30m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
                     break;
                 case colors::b_yellow :
-                    return "\033[3;43;30m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                    backGround = "30";
+                    forGround = "43";
+                    //return "\033[3;43;30m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
                     break;
                 case colors::b_blue_d:
-                    return "\033[3;44;30m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                    backGround = "30";
+                    forGround = "44";
+                    //return "\033[3;44;30m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
                     break;
                 case colors::b_blue_b :
-                    return "\033[3;104;30m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                    backGround = "30";
+                    forGround = "104";
+                    //return "\033[3;104;30m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
                     break;
-                case colors::b_gray :
-                    return "\033[3;100;30m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                case colors::b_gray_b :
+                    backGround = "100";
+                    forGround = "0";
+                    //return "\033[3;100;30m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
+                    break;
+                case colors::b_gray_l :
+                    backGround = "47";
+                    forGround = "0";
+                    break;
+                case colors::b_black :
+                    backGround = "40";
+                    forGround = "0";
+                    break;
+                case colors::b_red :
+                    backGround = "41";
+                    forGround = "0";
+                    break;
+                case colors::b_magenta :
+                    backGround = "45";
+                    forGround = "0";
+                    break;
+                case colors::b_red_l :
+                    backGround = "101";
+                    forGround = "0";
+                    break;
+                case colors::b_green_l :
+                    backGround = "102";
+                    forGround = "0";
+                    break;
+                case colors::b_yellow_l :
+                    backGround = "103";
+                    forGround = "0";
+                    break;
+                case colors::b_white :
+                    backGround = "107";
+                    forGround = "0";
                     break;
                 default:
                     return " ";
                     break;
            }
+           return "\x1B[2;"+forGround+";"+backGround+"m\033[" + to_string(y) + ";" + to_string(x) + "H" + sOut + "\033[0m";
         }
 };
